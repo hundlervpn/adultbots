@@ -3,6 +3,9 @@
 #  - обновление = git pull + docker compose up -d --build.
 services:
   lettiebrown:
+    # Токена пока нет, поэтому запускается только явно: docker compose up -d lettiebrown
+    # Обычный `docker compose up -d` его не трогает.
+    profiles: ["extra"]
     build:
       context: .
       args:
