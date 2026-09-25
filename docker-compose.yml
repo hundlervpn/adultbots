@@ -1,0 +1,27 @@
+# Папка каждого бота монтируется в /app, поэтому:
+#  - local_config.py (токены) и payments.sqlite3 (база) подхватываются с хоста;
+#  - обновление = git pull + docker compose up -d --build.
+services:
+  lettiebrown:
+    build:
+      context: .
+      args:
+        SERVICE: lettiebrown
+    image: adultbots:lettiebrown
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Moscow
+    volumes:
+      - ./lettiebrown:/app
+
+  vixieblaze:
+    build:
+      context: .
+      args:
+        SERVICE: vixieblaze
+    image: adultbots:vixieblaze
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Moscow
+    volumes:
+      - ./vixieblaze:/app

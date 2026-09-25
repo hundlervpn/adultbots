@@ -1,0 +1,6 @@
+.env
+payments.sqlite3
+local_config.py
+__pycache__/
+*.pyc
+.venv/
